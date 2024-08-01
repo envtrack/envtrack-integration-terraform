@@ -18,5 +18,12 @@ func Provider() *schema.Provider {
 		ResourcesMap: map[string]*schema.Resource{
 			"envtrack_track": resourceCustomAPIPost(),
 		},
+		Schema: map[string]*schema.Schema{
+			"auth_token": {
+				Type:        schema.TypeString,
+				Required:    true,
+				Description: "The authentication token for the API",
+			},
+		},
 	}
 }

@@ -1,4 +1,4 @@
-module envtrack-terraform
+module github.com/envtrack/terraform-provider-envtrack
 
 go 1.21
 

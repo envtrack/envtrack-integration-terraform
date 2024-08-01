@@ -18,35 +18,38 @@ func resourceCustomAPIPost() *schema.Resource {
 
 		Schema: map[string]*schema.Schema{
 			"organization_id": {
-				Type:     schema.TypeString,
-				Required: true,
+				Type:        schema.TypeString,
+				Required:    true,
+				Description: "The organization ID",
 			},
 			"project_id": {
-				Type:     schema.TypeString,
-				Required: true,
+				Type:        schema.TypeString,
+				Required:    true,
+				Description: "The project ID",
 			},
 			"environment_id": {
-				Type:     schema.TypeString,
-				Required: true,
+				Type:        schema.TypeString,
+				Required:    true,
+				Description: "The environment ID",
 			},
 			"var_identifier": {
-				Type:     schema.TypeString,
-				Required: true,
-			},
-			"auth_token": {
-				Type:     schema.TypeString,
-				Required: true,
+				Type:        schema.TypeString,
+				Required:    true,
+				Description: "The variable identifier",
 			},
 			"input_data": {
-				Type:     schema.TypeMap,
-				Elem:     &schema.Schema{Type: schema.TypeString},
-				Required: true,
+				Type:        schema.TypeMap,
+				Elem:        &schema.Schema{Type: schema.TypeString},
+				Required:    true,
+				Description: "The input data to post",
 			},
 			"response": {
-				Type:     schema.TypeString,
-				Computed: true,
+				Type:        schema.TypeString,
+				Computed:    true,
+				Description: "The response from the API",
 			},
 		},
+		Description: `This resource allows you to post variables to an environment in the EnvTrack API.`,
 	}
 }
 
