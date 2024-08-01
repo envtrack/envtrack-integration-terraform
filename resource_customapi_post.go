@@ -53,9 +53,11 @@ func resourceCustomAPIPost() *schema.Resource {
 	}
 }
 
-func resourceCustomAPIPostCreate(d *schema.ResourceData, m interface{}) error {
+func resourceCustomAPIPostCreate(d *schema.ResourceData, meta interface{}) error {
+	config := meta.(Config)
+	authToken := config.APIToken
+
 	endpoint := "https://api.external.envtrack.com/postVariablesToEnvironment"
-	authToken := d.Get("auth_token").(string)
 	orgID := d.Get("organization_id").(string)
 	projectID := d.Get("project_id").(string)
 	varIdentifier := d.Get("var_identifier").(string)

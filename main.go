@@ -25,5 +25,17 @@ func Provider() *schema.Provider {
 				Description: "The authentication token for the API",
 			},
 		},
+		ConfigureFunc: providerConfigure,
 	}
+}
+
+func providerConfigure(d *schema.ResourceData) (interface{}, error) {
+	config := Config{
+		APIToken: d.Get("auth_token").(string),
+	}
+	return config, nil
+}
+
+type Config struct {
+	APIToken string
 }
